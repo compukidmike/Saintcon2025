@@ -1,0 +1,61 @@
+menu "Badge Configuration"
+
+    # Device type configuration menu
+    menu "Device Configuration"
+        choice DEVICE_TYPE
+            prompt "Device Type"
+            default DEVICE_TYPE_BADGE
+            help
+                Select the type of device this firmware will run on.
+
+            config DEVICE_TYPE_BADGE
+                bool "Badge"
+                help
+                    Build firmware for Badge device.
+
+            config DEVICE_TYPE_NUT
+                bool "Nut"
+                help
+                    Build firmware for Nut device.
+        endchoice
+    endmenu
+
+    # ----------------------------------------------------------------
+    # Shared component configuration menus
+    # ----------------------------------------------------------------
+
+    # I2C configuration menu
+    rsource "../shared_components/i2c_manager/Kconfig"
+
+    # LED configuration menu
+    rsource "../shared_components/led/Kconfig"
+
+    # Security chip configuration menu
+    rsource "../shared_components/secure_element/Kconfig"
+
+    # WiFi configuration menu
+    rsource "../shared_components/wifi_manager/Kconfig"
+
+    # ----------------------------------------------------------------
+    # Badge-specific component configuration menus
+    # ----------------------------------------------------------------
+
+    # Battery configuration menu
+    rsource "../components/battery/Kconfig"
+
+    # Dawn Accord configuration menu
+    rsource "../components/dawn_accord/Kconfig"
+
+    # Display configuration menu
+    rsource "../components/display/Kconfig"
+
+    # Input configuration menu
+    rsource "../components/input/Kconfig"
+
+    # Minibadge configuration menu
+    rsource "../components/minibadge/Kconfig"
+
+    # NFC configuration menu
+    rsource "../components/nfc/Kconfig"
+
+endmenu

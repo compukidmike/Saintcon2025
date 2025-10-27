@@ -1,0 +1,9 @@
+menu "NFC Configuration"
+    config NFC_GPO_PIN
+        int "NFC GPO Pin"
+        default -1
+        range -1 SOC_GPIO_PIN_COUNT
+        help
+            The GPIO pin used for NFC GPO (General Purpose Output).
+            Set to -1 to disable.
+endmenu

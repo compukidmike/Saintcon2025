@@ -1,0 +1,81 @@
+menu "I2C Manager"
+
+config I2C_MANAGER_BUS_A_ENABLE
+    bool "Enable I2C Bus A (port 0)"
+    default y
+config I2C_MANAGER_BUS_A_SDA_GPIO
+    int "Bus A SDA GPIO" if I2C_MANAGER_BUS_A_ENABLE
+    default 0
+    range 0 SOC_GPIO_PIN_COUNT
+config I2C_MANAGER_BUS_A_SCL_GPIO
+    int "Bus A SCL GPIO" if I2C_MANAGER_BUS_A_ENABLE
+    default 0
+    range 0 SOC_GPIO_PIN_COUNT
+
+choice I2C_MANAGER_BUS_A_MUX
+    prompt "Bus A Mux Type" if I2C_MANAGER_BUS_A_ENABLE
+    default I2C_MANAGER_BUS_A_MUX_NONE
+    config I2C_MANAGER_BUS_A_MUX_NONE
+        bool "None"
+    config I2C_MANAGER_BUS_A_MUX_TCA9544A
+        bool "TCA9544A (4-channel)"
+    config I2C_MANAGER_BUS_A_MUX_PCA9548A
+        bool "PCA9548A (8-channel)"
+endchoice
+
+config I2C_MANAGER_BUS_A_MUX_ADDRESS
+    hex "Bus A mux I2C address" if I2C_MANAGER_BUS_A_ENABLE && !I2C_MANAGER_BUS_A_MUX_NONE
+    default 0x70
+    range 0x03 0x77
+
+config I2C_MANAGER_BUS_A_MUX_INT_ENABLE
+    bool "Enable Bus A mux INT pin" if I2C_MANAGER_BUS_A_ENABLE && I2C_MANAGER_BUS_A_MUX_TCA9544A
+    default n
+    help
+        Enable interrupt aggregation support for TCA9544A on Bus A. Provides per-channel callbacks.
+
+config I2C_MANAGER_BUS_A_MUX_INT_GPIO
+    int "Bus A mux INT GPIO" if I2C_MANAGER_BUS_A_MUX_INT_ENABLE
+    default 0
+    range 0 SOC_GPIO_PIN_COUNT
+
+config I2C_MANAGER_BUS_B_ENABLE
+    bool "Enable I2C Bus B (port 1)"
+    default n
+config I2C_MANAGER_BUS_B_SDA_GPIO
+    int "Bus B SDA GPIO" if I2C_MANAGER_BUS_B_ENABLE
+    default 0
+    range 0 SOC_GPIO_PIN_COUNT
+config I2C_MANAGER_BUS_B_SCL_GPIO
+    int "Bus B SCL GPIO" if I2C_MANAGER_BUS_B_ENABLE
+    default 0
+    range 0 SOC_GPIO_PIN_COUNT
+
+choice I2C_MANAGER_BUS_B_MUX
+    prompt "Bus B Mux Type" if I2C_MANAGER_BUS_B_ENABLE
+    default I2C_MANAGER_BUS_B_MUX_NONE
+    config I2C_MANAGER_BUS_B_MUX_NONE
+        bool "None"
+    config I2C_MANAGER_BUS_B_MUX_TCA9544A
+        bool "TCA9544A (4-channel)"
+    config I2C_MANAGER_BUS_B_MUX_PCA9548A
+        bool "PCA9548A (8-channel)"
+endchoice
+
+config I2C_MANAGER_BUS_B_MUX_ADDRESS
+    hex "Bus B mux I2C address" if I2C_MANAGER_BUS_B_ENABLE && !I2C_MANAGER_BUS_B_MUX_NONE
+    default 0x70
+    range 0x03 0x77
+
+config I2C_MANAGER_BUS_B_MUX_INT_ENABLE
+    bool "Enable Bus B mux INT pin" if I2C_MANAGER_BUS_B_ENABLE && I2C_MANAGER_BUS_B_MUX_TCA9544A
+    default n
+    help
+        Enable interrupt aggregation support for TCA9544A on Bus B. Provides per-channel callbacks.
+
+config I2C_MANAGER_BUS_B_MUX_INT_GPIO
+    int "Bus B mux INT GPIO" if I2C_MANAGER_BUS_B_MUX_INT_ENABLE
+    default 0
+    range 0 SOC_GPIO_PIN_COUNT
+
+endmenu

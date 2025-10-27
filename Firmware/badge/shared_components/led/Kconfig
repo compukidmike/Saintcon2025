@@ -1,0 +1,67 @@
+menu "LED Strip"
+
+    config LED_GPIO
+        int "LED Strip GPIO Pin"
+        range 0 48
+        default 10
+        help
+          GPIO pin connected to the LED strip data line.
+
+    config LED_NUM_LEDS
+        int "Number of LEDs in strip"
+        range 1 300
+        default 20
+        help
+          The number of LEDs in the LED strip.
+
+    choice LED_STRIP_MODEL
+        prompt "LED Strip Model"
+        default LED_STRIP_MODEL_WS2812
+        help
+          Select the LED strip model.
+
+        config LED_STRIP_MODEL_WS2812
+            bool "WS2812/WS2812B"
+            help
+              WS2812 or WS2812B LED strip.
+
+        config LED_STRIP_MODEL_SK6812
+            bool "SK6812"
+            help
+              SK6812 LED strip.
+
+        config LED_STRIP_MODEL_WS2811
+            bool "WS2811"
+            help
+              WS2811 LED strip.
+    endchoice
+
+    choice LED_COLOR_FORMAT
+        prompt "LED Color Component Format"
+        default LED_COLOR_FORMAT_GRB
+        help
+          Select the color component format for the LED strip.
+
+        config LED_COLOR_FORMAT_GRB
+            bool "GRB (Green-Red-Blue)"
+            help
+              Green-Red-Blue color format (most common for WS2812).
+
+        config LED_COLOR_FORMAT_RGB
+            bool "RGB (Red-Green-Blue)"
+            help
+              Red-Green-Blue color format.
+
+        config LED_COLOR_FORMAT_BGR
+            bool "BGR (Blue-Green-Red)"
+            help
+              Blue-Green-Red color format.
+    endchoice
+
+    config LED_GAMMA_CORRECTION
+        bool "Enable gamma correction"
+        default y
+        help
+          Enable gamma correction for better color accuracy.
+
+endmenu

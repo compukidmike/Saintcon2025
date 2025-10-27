@@ -1,0 +1,1 @@
+// This file is intentionally empty because we define the LVGL configuration in menuconfig

@@ -1,0 +1,10 @@
+menu "Battery"
+
+    config BATTERY_SENSE_GPIO
+        int "Battery Sense GPIO"
+        default -1
+        range -1 20
+        help
+            GPIO pin used for battery sensing. This should be connected to a voltage divider that scales the battery voltage to a safe level for the ESP32 ADC. On the ESP32-S3 the ADC pins are GPIO's 1-20.
+
+endmenu

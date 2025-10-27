@@ -1,0 +1,109 @@
+menu "Input"
+
+    config INPUT_TOUCH_ENABLED
+        bool "Touch Enabled"
+        default n
+        help
+            Enable touch support for the display
+
+    if INPUT_TOUCH_ENABLED
+        choice INPUT_TOUCH_CONTROLLER
+            prompt "Touch Controller"
+            default INPUT_TOUCH_CONTROLLER_GT911
+            depends on INPUT_TOUCH_ENABLED
+            help
+                Select the touch controller to use
+
+            config INPUT_TOUCH_CONTROLLER_GT911
+                bool "GT911"
+                help
+                    GT911 touch controller. Make sure you install the esp_lcd_touch_gt911 component
+        endchoice
+
+        menu "Touch GPIOs"
+            config INPUT_TOUCH_SDA_GPIO
+                int "SDA"
+                default 0
+                range 0 SOC_GPIO_PIN_COUNT
+                depends on INPUT_TOUCH_ENABLED
+                help
+                    GPIO pin number for the touch SDA
+
+            config INPUT_TOUCH_SCL_GPIO
+                int "SCL"
+                default 0
+                range 0 SOC_GPIO_PIN_COUNT
+                depends on INPUT_TOUCH_ENABLED
+                help
+                    GPIO pin number for the touch SCL
+
+            config INPUT_TOUCH_USE_INTERRUPT
+                bool "Enable interrupt for touch input rather than polling"
+                default n
+                depends on INPUT_TOUCH_ENABLED
+                help
+                    Use touch interrupt
+
+            config INPUT_TOUCH_INT_GPIO
+                int "Interrupt [INT]"
+                default 0
+                range 0 SOC_GPIO_PIN_COUNT
+                depends on INPUT_TOUCH_ENABLED && INPUT_TOUCH_USE_INTERRUPT
+                help
+                    GPIO pin number for INT
+
+            config INPUT_TOUCH_USE_RST
+                bool "Enable reset pin"
+                default n
+                depends on INPUT_TOUCH_ENABLED
+                help
+                    Use touch reset
+
+            config INPUT_TOUCH_RST_GPIO
+                int "Reset [RST]"
+                default 0
+                range 0 SOC_GPIO_PIN_COUNT
+                depends on INPUT_TOUCH_ENABLED && INPUT_TOUCH_USE_RST
+                help
+                    GPIO pin number for RST
+        endmenu
+
+        config INPUT_TOUCH_DEBOUNCE_MS
+            int "Touch Debounce Time (ms)"
+            default 30
+            range 0 1000
+            depends on INPUT_TOUCH_ENABLED
+            help
+                Touch debounce time in milliseconds
+    endif
+
+  config INPUT_JOYSTICK_ENABLED
+    bool "Enable joystick input"
+    default n
+    help
+        Enable joystick input support
+
+  if INPUT_JOYSTICK_ENABLED
+    config INPUT_JOY_UP_GPIO
+      int "Up GPIO"
+      range 0 SOC_GPIO_PIN_COUNT
+      default -1
+    config INPUT_JOY_DOWN_GPIO
+      int "Down GPIO"
+      range 0 SOC_GPIO_PIN_COUNT
+      default -1
+    config INPUT_JOY_LEFT_GPIO
+      int "Left GPIO"
+      range 0 SOC_GPIO_PIN_COUNT
+      default -1
+    config INPUT_JOY_RIGHT_GPIO
+      int "Right GPIO"
+      range 0 SOC_GPIO_PIN_COUNT
+      default -1
+    config INPUT_JOY_CENTER_GPIO
+      int "Center GPIO"
+      range 0 SOC_GPIO_PIN_COUNT
+      default -1
+  endif
+
+endmenu

@@ -1,0 +1,30 @@
+LICENSES
+
+NAME                            LICENSE FILE PATH                                       LICENSE TYPE                        COPYRIGHT                   COMMENTS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PTX105R SDK for SPI         https://opensource.org/licenses/BSD-3-Clause            The BSD 3-Clause License            Renesas Electronics         contained in source code headers
+Arduino Library
+1.0.0
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PTX1xxR                     https://opensource.org/licenses/BSD-3-Clause            The BSD 3-Clause License            Renesas Electronics         contained in source code headers
+NON-OS IOT READER SDK           
+7.2.0       
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PTX1xxR                     renesas-open-license-v1.txt                             Renesas Open License v 1.0          Renesas Electronics               
+NON-OS IOT READER
+Firmware/uCode                                                                                                                              
+Image for SDK
+7.2.0
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+This software includes both proprietary and open source components. The proprietary components may only be used after execution of the
+relevant Renesas Electronics Licensing Agreement. If you have not executed such an agreement you are not authorised to use this software.
+All open source components constitute a separate delivery and are licensed according to the applicable terms of their respective open source
+licenses. All open source software is delivered "AS IS" with no warranties. While Renesas Electronics seeks to provide complete and
+accurate licensing information with regard to each open source package, Renesas Electronics does not warrant or represent that the
+licensing information is complete or error-free. Certain open source licenses require that source code is made available under certain conditions. 
+Please contact renesas_nfc_arduino@lm.renesas.com for any source code requests, as well as for any licensing inquiries with respect to the proprietary components.
+
+Release Version: PTX105R SDK for SPI v1.0.0

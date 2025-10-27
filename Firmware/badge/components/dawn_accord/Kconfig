@@ -1,0 +1,17 @@
+menu "Dawn Accord"
+
+    config AI_INHIBITOR_GPIO
+        int "AI Inhibitor GPIO"
+        default -1
+        range -1 20
+        help
+            GPIO pin used for AI Inhibitor. Connected through a resistor to GND... resistance value will be estimated somewhat via the ADC.
+
+    config AI_SECURITY_STRIP_GPIO
+        int "AI Security Strip GPIO"
+        default -1
+        range -1 20
+        help
+            GPIO pin used for AI Security Strip. Connected to GND when the security strip is in place. Open once the trace is cut.
+
+endmenu

@@ -1,0 +1,132 @@
+dependencies:
+  espp/base_component:
+    component_hash: 0da011439698c92836c647e0ee427987fee9899b802188b61604ebacf25d5945
+    dependencies:
+    - name: espp/logger
+      registry_url: https://components.espressif.com
+      require: private
+      version: '>=1.0'
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.28
+  espp/base_peripheral:
+    component_hash: bbea8497b0e465ec7f47df354eecc1cd57870bb7a8e3cc5e602224d4e80a0812
+    dependencies:
+    - name: espp/base_component
+      registry_url: https://components.espressif.com
+      require: private
+      version: '>=1.0'
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.28
+  espp/format:
+    component_hash: 07c6ed0cc139b8a29d9c21cd06369d117c6ee22d22461197ae01d15a050621c9
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.28
+  espp/logger:
+    component_hash: d541cca82e692b33962e13f65c2502953d7c2e7007d9793a94a87b5c7eaa0ff2
+    dependencies:
+    - name: espp/format
+      registry_url: https://components.espressif.com
+      require: private
+      version: '>=1.0'
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.28
+  espp/ndef:
+    component_hash: ff3fae50c71cf51ce93704df7efde7466d0fc9cbd82dab42aeb14d78018b60dd
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.28
+  espp/st25dv:
+    component_hash: 774ea57e2f7ff1385a5f003093249a6f6993b65aad83f54b9ef12ae834f84088
+    dependencies:
+    - name: espp/base_peripheral
+      registry_url: https://components.espressif.com
+      require: private
+      version: '>=1.0'
+    - name: espp/ndef
+      registry_url: https://components.espressif.com
+      require: private
+      version: '>=1.0'
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.27
+  espressif/esp-boost:
+    component_hash: faf0cf16385575da381cde57989c14a82538ef90665fe7f7cec459a738c88fec
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.3'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.3.1
+  espressif/led_strip:
+    component_hash: 223998f10cae6d81f2ad2dd3c1103c2221be298c708e37917482b0153f3ec64e
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 3.0.1~1
+  idf:
+    source:
+      type: idf
+    version: 5.5.0
+  johboh/nlohmann-json:
+    component_hash: 2a97e10124d755da820b0381e36a9a6504574328f262964ccea3f8b2f228fc66
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.4'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 3.12.0
+  lvgl/lvgl:
+    component_hash: b702d642e03e95928046d5c6726558e6444e112420c77efa5fdb6650b0a13c5d
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 9.3.0
+direct_dependencies:
+- espp/st25dv
+- espressif/esp-boost
+- espressif/led_strip
+- idf
+- johboh/nlohmann-json
+- lvgl/lvgl
+manifest_hash: d1f819f298e2e756699db1ec8b68cdf469b51b338592c0966d37d74b569e9d08
+target: esp32s3
+version: 2.0.0

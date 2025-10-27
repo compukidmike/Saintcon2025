@@ -1,0 +1,11 @@
+## IDF Component Manager Manifest File
+dependencies:
+  ## Required IDF version
+  idf:
+    version: '>=5.5.0'
+  ## Other external dependencies
+  lvgl/lvgl: ^9.3.0
+  johboh/nlohmann-json: ^3.12.0
+  espressif/led_strip: ^3.0.1~1
+  espp/st25dv: ^1.0.25
+  espressif/esp-boost: ^0.3.1

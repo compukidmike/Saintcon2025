@@ -1,0 +1,9 @@
+menu "Secure Element"
+
+    config SECURE_ELEMENT_ENABLED
+        bool "Enable ATECC608B Secure Element"
+        default n
+        help
+            Enable support for secure element functionality.
+
+endmenu

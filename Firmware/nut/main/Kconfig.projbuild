@@ -1,0 +1,39 @@
+menu "Nut Configuration"
+
+    # Device type configuration menu
+    menu "Device Configuration"
+        choice DEVICE_TYPE
+            prompt "Device Type"
+            default DEVICE_TYPE_BADGE
+            help
+                Select the type of device this firmware will run on.
+
+            config DEVICE_TYPE_BADGE
+                bool "Badge"
+                help
+                    Build firmware for Badge device.
+
+            config DEVICE_TYPE_NUT
+                bool "Nut"
+                help
+                    Build firmware for Nut device.
+        endchoice
+    endmenu
+
+    # ----------------------------------------------------------------
+    # Shared component configuration menus
+    # ----------------------------------------------------------------
+
+    # I2C configuration menu
+    rsource "../shared_components/i2c_manager/Kconfig"
+
+    # Security configuration menu
+    rsource "../shared_components/secure_element/Kconfig"
+
+    # WiFi configuration menu
+    rsource "../shared_components/wifi_manager/Kconfig"
+
+    # LED configuration menu
+    rsource "../shared_components/led/Kconfig"
+
+endmenu

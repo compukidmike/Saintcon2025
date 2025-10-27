@@ -1,0 +1,25 @@
+menu "Minibadge Configuration"
+
+    config MINIBADGE_ENABLED
+        bool "Enable Minibadge"
+        default n
+        help
+            Enable support for the Minibadge features.
+
+    config MINIBADGE_CLOCK_LOW_PIN
+        int "Clock Pin (Low)"
+        depends on MINIBADGE_ENABLED
+        default -1
+        range -1 SOC_GPIO_PIN_COUNT
+        help
+            GPIO pin number for the minibadge on/off blinky clock - low.
+
+    config MINIBADGE_CLOCK_HIGH_PIN
+        int "Clock Pin (High)"
+        depends on MINIBADGE_ENABLED
+        default -1
+        range -1 SOC_GPIO_PIN_COUNT
+        help
+            GPIO pin number for the minibadge on/off blinky clock - high.
+
+endmenu

@@ -1,0 +1,19 @@
+menu "Network Manager Configuration"
+
+    config NETWORK_MANAGER_ETHERNET_RETRY_INTERVAL_MS
+        int "Ethernet retry interval (ms)"
+        default 30000
+        range 0 300000
+        help
+            How often to retry Ethernet connection if it fails.
+            Set to 0 to disable automatic retry.
+            Default is 30 seconds.
+
+    config NETWORK_MANAGER_PREFER_ETHERNET
+        bool "Prefer Ethernet over WiFi when both are available"
+        default y
+        help
+            When both Ethernet and WiFi are connected, use Ethernet
+            as the primary connection for outbound traffic.
+
+endmenu
